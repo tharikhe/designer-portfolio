@@ -1,0 +1,90 @@
+/* App-specific styles */
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Ensure full-width sections */
+section {
+  width: 100%;
+}
+
+/* Custom cursor for interactive elements */
+a, button, .cursor-pointer {
+  cursor: pointer;
+}
+
+/* Image hover effects */
+.group:hover .group-hover\:scale-\[1\.02\] {
+  transform: scale(1.02);
+}
+
+/* Transition utilities */
+.transition-transform {
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Perspective for 3D effects */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+/* Preserve 3D transforms */
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+/* Backface visibility */
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+/* Responsive typography scaling */
+@media (max-width: 640px) {
+  .section-title {
+    font-size: clamp(2rem, 10vw, 3rem);
+  }
+  
+  .hero-title {
+    font-size: clamp(2.5rem, 14vw, 4rem);
+  }
+  
+  .section-number {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Focus styles for accessibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #C41E3A;
+  outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  section {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
