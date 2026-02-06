@@ -50,7 +50,7 @@ const PROJECTS: CardStackItem[] = [
 
 const SocialStack = () => {
     return (
-        <section id="social-stack" className="min-h-screen w-full bg-cream py-20 overflow-hidden flex flex-col justify-center items-center">
+        <section id="social-stack" className="w-full bg-cream py-16 md:py-20 overflow-hidden flex flex-col items-center">
             <div className="container mx-auto px-4 mb-12 text-center">
                 <div className="flex flex-col items-center justify-center gap-2 mb-4">
                     <MagneticText text="LATEST" hoverText="PROJECTS" className="text-red font-black text-6xl md:text-8xl tracking-tight leading-none" />
@@ -61,12 +61,13 @@ const SocialStack = () => {
                 </p>
             </div>
 
-            <div className="w-full max-w-6xl mx-auto h-[600px] flex items-center justify-center">
+            <div className="w-full max-w-5xl mx-auto flex items-center justify-center">
                 <CardStack
                     items={PROJECTS}
-                    cardWidth={350}
-                    cardHeight={500}
-                    activeScale={1.1}
+                    className="py-6 sm:py-8"
+                    cardWidth={320}
+                    cardHeight={440}
+                    activeScale={1.06}
                     autoAdvance={false}
                 />
             </div>

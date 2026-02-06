@@ -17,8 +17,8 @@ interface FlipCardProps {
 }
 
 // --- FlipCard Component ---
-const IMG_WIDTH = 60;
-const IMG_HEIGHT = 85;
+const IMG_WIDTH = 84;
+const IMG_HEIGHT = 84;
 
 function FlipCard({
     src,
@@ -42,50 +42,29 @@ function FlipCard({
                 stiffness: 40,
                 damping: 15,
             }}
-
             // Initial style
             style={{
                 position: "absolute",
                 width: IMG_WIDTH,
                 height: IMG_HEIGHT,
-                transformStyle: "preserve-3d", // Essential for the 3D hover effect
-                perspective: "1000px",
             }}
-            className="cursor-pointer group"
+            className="group"
         >
             <motion.div
-                className="relative h-full w-full"
-                style={{ transformStyle: "preserve-3d" }}
-                transition={{ duration: 0.6, type: "spring", stiffness: 260, damping: 20 }}
-                whileHover={{ rotateY: 180 }}
+                className="relative h-full w-full rounded-xl bg-white/90 ring-1 ring-black/5 shadow-[0_18px_40px_-26px_rgba(0,0,0,0.45)] backdrop-blur-sm"
+                transition={{ type: "spring", stiffness: 220, damping: 18 }}
+                whileHover={{ y: -6, scale: 1.05, rotate: -2 }}
             >
-                {/* Front Face */}
-                <div
-                    className="absolute inset-0 h-full w-full overflow-hidden rounded-xl shadow-lg bg-gray-200 flex items-center justify-center p-2"
-                    style={{ backfaceVisibility: "hidden" }}
-                >
-                    <img
-                        src={src}
-                        alt={`tool-${index}`}
-                        className="w-full h-full object-contain"
-                        onError={(e) => {
-                            e.currentTarget.src = "https://cdn.simpleicons.org/adobecreativecloud/999"; // Fallback
-                            e.currentTarget.onerror = null; // Prevent infinite loop
-                        }}
-                    />
-                    <div className="absolute inset-0 bg-black/5 transition-colors group-hover:bg-transparent" />
-                </div>
-
-                {/* Back Face */}
-                <div
-                    className="absolute inset-0 h-full w-full overflow-hidden rounded-xl shadow-lg bg-gray-900 flex flex-col items-center justify-center p-2 border border-gray-700"
-                    style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)" }}
-                >
-                    <div className="text-center">
-                        <p className="text-[8px] font-bold text-blue-400 uppercase tracking-widest mb-1">View</p>
-                        <p className="text-[10px] font-medium text-white">Details</p>
-                    </div>
-                </div>
+                <div className="pointer-events-none absolute inset-0 rounded-xl bg-gradient-to-br from-white/80 via-white/30 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                <img
+                    src={src}
+                    alt={`tool-${index}`}
+                    className="h-full w-full object-contain p-3.5 opacity-90 transition duration-300 group-hover:opacity-100"
+                    onError={(e) => {
+                        e.currentTarget.src = "https://cdn.simpleicons.org/adobecreativecloud/999"; // Fallback
+                        e.currentTarget.onerror = null; // Prevent infinite loop
+                    }}
+                />
             </motion.div>
         </motion.div>
     );
@@ -99,12 +78,12 @@ const MAX_SCROLL = 2000; // Virtual scroll range
 const IMAGES = [
     "/photoshop-camera_5968497.png",
     "/premiere_5611084.png",
-    "/after-effects_5968428.png",
+    "/square_16168696.png",
     "/illustrator_9814096.png",
     "/lightroom_10526831.png",
     "/CapCut-Emblem.png",
+    "/after-effects_5968428.png",
     "/experience_726125.png",
-    "/square_16168696.png",
 ];
 
 
@@ -228,7 +207,11 @@ export default function ToolsAnimation() {
     const contentY = useTransform(smoothMorph, [0.8, 1], [20, 0]);
 
     return (
-        <section ref={containerRef} className="relative w-full h-[120vh] bg-[#FAFAFA] overflow-hidden">
+        <section ref={containerRef} className="relative w-full h-[115vh] bg-cream overflow-hidden">
+            <div className="pointer-events-none absolute inset-0">
+                <div className="absolute -top-24 left-1/2 h-64 w-64 -translate-x-1/2 rounded-full bg-red/10 blur-[120px]" />
+                <div className="absolute bottom-0 right-0 h-72 w-72 rounded-full bg-black/5 blur-[140px]" />
+            </div>
             <div className="relative w-full h-full">
                 {/* Container */}
                 <div className="flex h-full w-full flex-col items-center justify-center perspective-1000">
@@ -239,7 +222,7 @@ export default function ToolsAnimation() {
                             initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
                             animate={introPhase === "circle" && morphValue < 0.5 ? { opacity: 1 - morphValue * 2, y: 0, filter: "blur(0px)" } : { opacity: 0, filter: "blur(10px)" }}
                             transition={{ duration: 1 }}
-                            className="text-4xl sm:text-6xl md:text-7xl font-black tracking-tighter text-gray-900 uppercase"
+                            className="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight text-red uppercase"
                         >
                             Tools of the Trade
                         </motion.h1>
@@ -247,7 +230,7 @@ export default function ToolsAnimation() {
                             initial={{ opacity: 0 }}
                             animate={introPhase === "circle" && morphValue < 0.5 ? { opacity: 0.5 - morphValue } : { opacity: 0 }}
                             transition={{ duration: 1, delay: 0.2 }}
-                            className="mt-4 text-sm font-bold tracking-[0.2em] text-gray-500 uppercase"
+                            className="mt-4 text-xs sm:text-sm font-bold tracking-[0.28em] text-red/50 uppercase"
                         >
                             Scroll to Explore
                         </motion.p>
@@ -258,11 +241,14 @@ export default function ToolsAnimation() {
                         style={{ opacity: contentOpacity, y: contentY }}
                         className="absolute top-[10%] z-10 flex flex-col items-center justify-center text-center pointer-events-none px-4"
                     >
-                        <h2 className="text-3xl md:text-5xl font-black text-gray-900 tracking-tighter mb-4 uppercase">
-                            Powered By
+                        <div className="mb-3 rounded-full border border-red/20 bg-white/70 px-4 py-1 text-[10px] font-semibold uppercase tracking-[0.32em] text-red/70">
+                            Toolkit
+                        </div>
+                        <h2 className="text-3xl md:text-5xl font-black text-red tracking-tight mb-3 uppercase">
+                            Powered By Craft
                         </h2>
-                        <p className="text-sm md:text-base text-gray-600 max-w-lg leading-relaxed">
-                            Mastery over industry-standard tools ensures that every pixel is perfect and every frame tells a story.
+                        <p className="text-sm md:text-base text-red/60 max-w-lg leading-relaxed">
+                            A refined stack of industry tools, curated to keep the focus on clarity, speed, and visual precision.
                         </p>
                     </motion.div>
 
@@ -296,7 +282,7 @@ export default function ToolsAnimation() {
 
                                 // B. Calculate Bottom Arc Position
                                 const baseRadius = Math.min(containerSize.width, containerSize.height * 1.5);
-                                const arcRadius = baseRadius * (isMobile ? 1.4 : 1.1);
+                                const arcRadius = baseRadius * (isMobile ? 1.25 : 1.05);
                                 const arcApexY = containerSize.height * (isMobile ? 0.35 : 0.25);
                                 const arcCenterY = arcApexY + arcRadius;
                                 const spreadAngle = isMobile ? 100 : 130;
@@ -328,7 +314,7 @@ export default function ToolsAnimation() {
                                     x: Math.cos(arcRad) * arcRadius + parallaxValue,
                                     y: Math.sin(arcRad) * arcRadius + arcCenterY,
                                     rotation: currentArcAngle + 90,
-                                    scale: isMobile ? 1.4 : 1.8,
+                                    scale: isMobile ? 1.2 : 1.5,
                                 };
 
                                 target = {

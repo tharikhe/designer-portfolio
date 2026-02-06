@@ -46,7 +46,9 @@ module.exports = {
         },
       },
       fontFamily: {
-        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+        sans: ['Roboto', 'Open Sans', 'Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+        condensed: ['Roboto Condensed', 'sans-serif'],
+        anton: ['Anton', 'sans-serif'],
       },
       borderRadius: {
         xl: "calc(var(--radius) + 4px)",

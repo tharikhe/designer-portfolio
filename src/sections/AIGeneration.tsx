@@ -70,7 +70,7 @@ const AIGeneration = () => {
             <p>• <strong>Concept Art:</strong> Bringing ideas to life before production begins</p>
             <p>• <strong>Brand Imagery:</strong> Unique visuals that set your brand apart</p>
             <p>• <strong>Social Content:</strong> Scroll-stopping AI-enhanced graphics</p>
-            <p className="pt-2 italic font-['Playwrite_NZ']">"Combining human creativity with AI capabilities to deliver visuals that were once impossible."</p>
+            <p className="pt-2 italic">"Combining human creativity with AI capabilities to deliver visuals that were once impossible."</p>
           </div>
         </div>
 

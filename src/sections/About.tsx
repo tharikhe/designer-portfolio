@@ -82,21 +82,29 @@ const About = () => {
           {/* Circular Profile Image */}
           <div ref={imageRef} className="mb-8 opacity-0">
             <div className="relative w-full max-w-sm mx-auto lg:mx-0 lg:ml-auto">
-              <div className="aspect-square rounded-full overflow-hidden bg-gradient-to-br from-gray-700 to-gray-900 border-4 border-red/10">
+              <div
+                className="pointer-events-none absolute -top-6 -right-6 h-28 w-28 rounded-full bg-red/10 blur-2xl"
+                aria-hidden="true"
+              />
+              <div className="relative aspect-[4/5] overflow-hidden rounded-[28px] bg-white ring-1 ring-red/15 shadow-[0_30px_70px_-40px_rgba(0,0,0,0.45)]">
                 <img
                   src="/images/about-profile.png"
                   alt="Mubashir VM - About"
-                  className="w-full h-full object-cover"
+                  className="h-full w-full object-contain object-center"
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;
                     target.style.display = 'none';
                     const parent = target.parentElement;
                     if (parent) {
-                      parent.innerHTML = '<div class="w-full h-full flex items-center justify-center text-white/30 text-sm">Add about-profile.png</div>';
+                      parent.innerHTML = '<div class="w-full h-full flex items-center justify-center text-red/30 text-sm">Add about-profile.png</div>';
                     }
                   }}
                 />
               </div>
+              <div
+                className="pointer-events-none absolute -bottom-5 -left-5 h-14 w-14 rounded-full border border-red/20"
+                aria-hidden="true"
+              />
             </div>
           </div>
 

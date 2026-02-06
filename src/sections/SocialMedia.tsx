@@ -57,7 +57,7 @@ const SocialMedia = () => {
             <h2 className="text-red font-black text-[12vw] sm:text-[10vw] lg:text-[4vw] xl:text-[4.5rem] leading-[0.9] tracking-tight">
               SOCIAL MEDIA
             </h2>
-            <p className="text-red font-['Playwrite_NZ'] text-xl sm:text-2xl lg:text-3xl xl:text-4xl mt-2 italic">
+            <p className="text-red text-xl sm:text-2xl lg:text-3xl xl:text-4xl mt-2 italic">
               CREATIVES
             </p>
           </div>
@@ -70,7 +70,7 @@ const SocialMedia = () => {
             <p className="text-red text-[9px] sm:text-[10px] lg:text-xs font-bold uppercase leading-tight tracking-wide">
               CRAFTED STRATEGIC SOCIAL MEDIA CONTENT, INCLUDING POSTERS AND REELS, TO INCREASE VIEWER ENGAGEMENT WITH STOCK MARKET NEWS
             </p>
-            <p className="text-red text-xs sm:text-sm lg:text-base leading-relaxed font-['Playwrite_NZ'] italic">
+            <p className="text-red text-xs sm:text-sm lg:text-base leading-relaxed italic">
               My work transforms passive followers into active participants, fostering a loyal and engaged online community
             </p>
             <p className="text-red text-[10px] sm:text-xs leading-relaxed mt-2">
