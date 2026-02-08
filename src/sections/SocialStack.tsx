@@ -4,47 +4,44 @@ import { CardStack } from '@/components/ui/CardStack';
 import { MagneticText } from '@/components/ui/morphing-cursor';
 import type { CardStackItem } from '@/components/ui/CardStack';
 
+import creative1 from '../creatives1.png';
+import creative2 from '../creatives2.png';
+import creative3 from '../creatives3.png';
+import creative4 from '../creatives4.png';
+
 // Demo data for the stack
 const PROJECTS: CardStackItem[] = [
     {
         id: 1,
-        title: "Market Analysis",
-        description: "Detailed breakdown of weekly market trends and forecasts.",
-        imageSrc: "/images/social-media.png", // Using your existing mockup as a placeholder
-        tag: "Finance",
-        href: "#market-analysis"
+        title: "Missed Last Swing?",
+        description: "Analyzing market timing and missed opportunities.",
+        imageSrc: creative1,
+        tag: "Market Analysis",
+        href: "#missed-swing"
     },
     {
         id: 2,
-        title: "Trump's Tariffs",
-        description: "Visualizing the impact of new trade policies on global markets.",
-        imageSrc: "https://images.unsplash.com/photo-1611974765270-ca12586343bb?q=80&w=800&auto=format&fit=crop",
-        tag: "Economy",
-        href: "#trumps-tariffs"
+        title: "Zero Brokerage",
+        description: "The impact of zero brokerage models on trading volume.",
+        imageSrc: creative2,
+        tag: "Trading",
+        href: "#zero-brokerage"
     },
     {
         id: 3,
-        title: "Pharma Growth",
-        description: "Revenue share analysis of Indian pharma companies in the US.",
-        imageSrc: "https://images.unsplash.com/photo-1576091160550-217358c7e618?q=80&w=800&auto=format&fit=crop",
-        tag: "Healthcare",
-        href: "#pharma-growth"
+        title: "When to Buy/Sell",
+        description: "Strategic entry and exit points for maximum gains.",
+        imageSrc: creative3,
+        tag: "Strategy",
+        href: "#buy-sell"
     },
     {
         id: 4,
-        title: "Broker Rankings",
-        description: "Comparing India's top stock brokers by active user base.",
-        imageSrc: "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?q=80&w=800&auto=format&fit=crop",
-        tag: "Brokers",
-        href: "#broker-rankings"
-    },
-    {
-        id: 5,
-        title: "Crypto Trends",
-        description: "Analyzing recent movements in Bitcoin and Ethereum.",
-        imageSrc: "https://images.unsplash.com/photo-1518546305927-5a555bb7020d?q=80&w=800&auto=format&fit=crop",
-        tag: "Crypto",
-        href: "#crypto-trends"
+        title: "GST Cuts",
+        description: "Understanding the implications of recent GST reductions.",
+        imageSrc: creative4,
+        tag: "Policy",
+        href: "#gst-cuts"
     },
 ];
 

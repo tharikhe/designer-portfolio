@@ -4,6 +4,10 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
+import thumb1 from '../thumbnail1.PNG';
+import thumb2 from '../thumbnail2.PNG';
+import thumb3 from '../thumbnail3.PNG';
+
 const Thumbnails = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const titleRef = useRef<HTMLDivElement>(null);
@@ -74,76 +78,32 @@ const Thumbnails = () => {
         {/* Right - Thumbnail grid */}
         <div ref={gridRef} className="lg:col-span-8 grid grid-cols-2 gap-4">
           {/* Top row - two thumbnails */}
-          <div className="thumb-item relative overflow-hidden rounded-lg shadow-xl opacity-0 group">
-            <div className="aspect-video bg-gradient-to-br from-red-900 to-red-700 p-3 flex flex-col justify-between relative">
-              {/* Background pattern */}
-              <div className="absolute inset-0 opacity-20">
-                <div className="absolute top-1/2 left-1/4 text-6xl font-black text-white/30">BUDGET</div>
-              </div>
-
-              <div className="relative z-10">
-                <p className="text-white text-xs font-bold uppercase">WHAT TO EXPECT</p>
-                <p className="text-white/80 text-[10px]">2025</p>
-              </div>
-
-              {/* Person silhouettes area */}
-              <div className="relative z-10 flex justify-end">
-                <div className="w-16 h-16 bg-gradient-to-t from-gray-800 to-transparent rounded-full"></div>
-              </div>
-            </div>
+          <div className="thumb-item relative overflow-hidden rounded-lg shadow-xl opacity-0 group aspect-video">
+            <img
+              src={thumb1}
+              alt="Thumbnail 1"
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
+            />
           </div>
 
-          <div className="thumb-item relative overflow-hidden rounded-lg shadow-xl opacity-0 group">
-            <div className="aspect-video bg-gradient-to-br from-gray-900 to-gray-700 p-3 flex flex-col justify-between relative">
-              {/* Background - bank building */}
-              <div className="absolute inset-0 bg-gradient-to-r from-red-900/50 to-blue-900/50"></div>
-
-              <div className="relative z-10 text-right">
-                <p className="text-white text-lg font-black uppercase">THE REAL TRUTH?</p>
-              </div>
-
-              {/* Person silhouette */}
-              <div className="relative z-10">
-                <div className="w-12 h-16 bg-gradient-to-t from-gray-600 to-transparent rounded-t-full"></div>
-              </div>
-            </div>
+          <div className="thumb-item relative overflow-hidden rounded-lg shadow-xl opacity-0 group aspect-video">
+            <img
+              src={thumb2}
+              alt="Thumbnail 2"
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
+            />
           </div>
 
           {/* Bottom row - large thumbnail */}
-          <div className="thumb-item col-span-2 relative overflow-hidden rounded-lg shadow-xl opacity-0 group">
-            <div className="aspect-[21/9] bg-gradient-to-br from-gray-800 to-gray-900 p-4 flex flex-col justify-between relative">
-              {/* Background elements */}
-              <div className="absolute inset-0">
-                <div className="absolute top-0 left-0 w-1/3 h-full bg-gradient-to-r from-gray-900 to-transparent"></div>
-                <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-blue-900/50 to-transparent"></div>
-                {/* Factory/industry silhouette */}
-                <div className="absolute bottom-0 left-4 flex gap-1">
-                  {[1, 2, 3].map((i) => (
-                    <div key={i} className="w-4 h-16 bg-gray-700 rounded-t"></div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Logo */}
-              <div className="relative z-10 flex items-center gap-1">
-                <div className="w-5 h-5 bg-blue-500 rounded flex items-center justify-center">
-                  <span className="text-white text-[10px] font-bold">T</span>
-                </div>
-                <span className="text-white/70 text-[10px]">Traders Circuit</span>
-              </div>
-
-              {/* Title */}
-              <div className="relative z-10 text-center">
-                <p className="text-white text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-wider">TRADE WARS</p>
-              </div>
-
-              {/* Person silhouettes */}
-              <div className="relative z-10 flex justify-center gap-4">
-                <div className="w-12 h-16 bg-gradient-to-t from-gray-600 to-transparent rounded-t-full"></div>
-                <div className="w-14 h-20 bg-gradient-to-t from-gray-500 to-transparent rounded-t-full"></div>
-                <div className="w-12 h-16 bg-gradient-to-t from-gray-600 to-transparent rounded-t-full"></div>
-              </div>
-            </div>
+          <div className="thumb-item col-span-2 relative overflow-hidden rounded-lg shadow-xl opacity-0 group aspect-[21/9]">
+            <img
+              src={thumb3}
+              alt="Thumbnail 3"
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
+            />
           </div>
         </div>
       </div>

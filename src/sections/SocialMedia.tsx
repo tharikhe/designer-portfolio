@@ -83,12 +83,13 @@ const SocialMedia = () => {
         </div>
 
         {/* Center - MASSIVE Overlapping Mockup Image */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-[55%] -translate-y-1/2 w-full flex justify-center items-center z-20 pointer-events-none">
+        <div className="relative mt-8 lg:mt-0 lg:absolute lg:top-1/2 lg:left-1/2 lg:-translate-x-[55%] lg:-translate-y-1/2 w-full flex justify-center items-center z-20 pointer-events-none">
           <img
             ref={imageRef}
             src="/images/social-media.png"
             alt="Social Media Instagram Mockups"
             className="w-[100%] sm:w-[90%] lg:w-[85%] xl:w-[80%] h-auto object-contain opacity-0 transform scale-125 hover:scale-[1.3] transition-transform duration-300 pointer-events-auto"
+            loading="lazy"
           />
         </div>
       </div>

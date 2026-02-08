@@ -10,14 +10,13 @@ import About from './sections/About';
 import ToolsAnimation from './sections/ToolsAnimation';
 import MarqueeSection from './sections/MarqueeSection';
 import SocialMedia from './sections/SocialMedia';
-import SocialStack from './sections/SocialStack';
-
-import SocialGrid from './sections/SocialGrid';
 import MetaAds from './sections/MetaAds';
 import Thumbnails from './sections/Thumbnails';
 import Photography from './sections/Photography';
 import AIGeneration from './sections/AIGeneration';
 import Contact from './sections/Contact';
+
+import SeniorDesignerShowcase from './sections/SeniorDesignerShowcase';
 
 import './App.css';
 
@@ -153,9 +152,7 @@ function App() {
           <ToolsAnimation />
           <MarqueeSection />
           <SocialMedia />
-          <SocialStack />
-
-          <SocialGrid />
+          <SeniorDesignerShowcase />
           <MetaAds />
           <Thumbnails />
           <Photography />

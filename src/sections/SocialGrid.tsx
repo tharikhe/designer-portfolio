@@ -35,6 +35,7 @@ const SocialGrid = () => {
               src="/images/creatives1.png"
               alt="Missed last swing?"
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
             />
           </div>
         </div>
@@ -46,6 +47,7 @@ const SocialGrid = () => {
               src="/images/creatives2.png"
               alt="Zero Brokerage"
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
             />
           </div>
         </div>
@@ -57,6 +59,7 @@ const SocialGrid = () => {
               src="/images/creatives3.png"
               alt="When to Buy When to Sell"
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
             />
           </div>
         </div>
@@ -68,6 +71,7 @@ const SocialGrid = () => {
               src="/images/creatives4.png"
               alt="GST Cuts"
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
             />
           </div>
         </div>
