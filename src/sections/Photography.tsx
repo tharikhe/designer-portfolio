@@ -62,6 +62,7 @@ const Photography = () => {
                 src="/phot1.webp"
                 alt="Photography 1"
                 className="w-full h-full object-cover"
+                loading="lazy"
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
                   target.style.display = 'none';
@@ -74,9 +75,10 @@ const Photography = () => {
           <div className="photo-item relative overflow-hidden rounded-lg shadow-lg opacity-0">
             <div className="aspect-[3/4] bg-gradient-to-br from-gray-700 to-gray-800 relative">
               <img
-                src="/photo2.webp"
+                src="/photography.jpeg"
                 alt="Photography 2"
                 className="w-full h-full object-cover"
+                loading="lazy"
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
                   target.style.display = 'none';
@@ -92,6 +94,7 @@ const Photography = () => {
                 src="/photo3.webp"
                 alt="Photography 3"
                 className="w-full h-full object-cover"
+                loading="lazy"
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
                   target.style.display = 'none';
@@ -107,6 +110,7 @@ const Photography = () => {
                 src="/images/photo4.jpg"
                 alt="Photography 4"
                 className="w-full h-full object-cover"
+                loading="lazy"
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
                   target.style.display = 'none';

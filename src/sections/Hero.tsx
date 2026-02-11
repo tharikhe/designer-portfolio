@@ -81,6 +81,7 @@ const Hero = () => {
                   src="/images/hero-profile.png"
                   alt="Mubashir VM"
                   className="w-full h-auto object-contain"
+                  loading="eager"
                 />
               </div>
             </div>

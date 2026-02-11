@@ -60,6 +60,7 @@ function FlipCard({
                     src={src}
                     alt={`tool-${index}`}
                     className="h-full w-full object-contain p-3.5 opacity-90 transition duration-300 group-hover:opacity-100"
+                    loading="lazy"
                     onError={(e) => {
                         e.currentTarget.src = "https://cdn.simpleicons.org/adobecreativecloud/999"; // Fallback
                         e.currentTarget.onerror = null; // Prevent infinite loop

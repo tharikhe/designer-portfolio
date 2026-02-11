@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 
 interface GooeyTextProps {
@@ -16,10 +16,21 @@ export function GooeyText({
     className,
     textClassName
 }: GooeyTextProps) {
+    const [fontsReady, setFontsReady] = useState(false);
     const text1Ref = useRef<HTMLSpanElement>(null);
     const text2Ref = useRef<HTMLSpanElement>(null);
 
+    // Wait for custom fonts to load before starting the effect
     useEffect(() => {
+        let cancelled = false;
+        document.fonts.ready.then(() => {
+            if (!cancelled) setFontsReady(true);
+        });
+        return () => { cancelled = true; };
+    }, []);
+
+    useEffect(() => {
+        if (!fontsReady) return;
         let textIndex = texts.length - 1;
         let time = new Date();
         let morph = 0;
@@ -88,10 +99,16 @@ export function GooeyText({
         return () => {
             cancelAnimationFrame(animationId);
         };
-    }, [texts, morphTime, cooldownTime]);
+    }, [texts, morphTime, cooldownTime, fontsReady]);
 
     return (
-        <div className={cn("relative", className)}>
+        <div
+            className={cn("relative", className)}
+            style={{
+                opacity: fontsReady ? 1 : 0,
+                transition: "opacity 0.4s ease-in-out",
+            }}
+        >
             <svg className="absolute h-0 w-0" aria-hidden="true" focusable="false">
                 <defs>
                     <filter id="threshold">

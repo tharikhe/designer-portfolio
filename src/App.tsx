@@ -25,7 +25,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
-  const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
+  const [lightbox, setLightbox] = useState<{ src: string; alt: string; transform?: string } | null>(null);
 
   // Initialize ScrollTrigger immediately on mount
   useEffect(() => {
@@ -80,6 +80,7 @@ function App() {
       setLightbox({
         src,
         alt: img.getAttribute('alt') || 'Image preview',
+        transform: img.getAttribute('data-lightbox-transform') || undefined,
       });
     };
 
@@ -138,6 +139,7 @@ function App() {
               src={lightbox.src}
               alt={lightbox.alt}
               className="w-auto h-auto max-w-[90vw] max-h-[90vh] object-contain rounded-md shadow-2xl"
+              style={lightbox.transform ? { transform: lightbox.transform } : undefined}
             />
           </div>
         </div>

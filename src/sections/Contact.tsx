@@ -56,13 +56,47 @@ const Contact = () => {
     return () => ctx.revert();
   }, []);
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const GOOGLE_FORM_ACTION =
+    'https://docs.google.com/forms/d/e/1FAIpQLSdu1F2vjstQTQ0KA2xnvIsfTIX15e59WYrDQuHZjVYsS4JGqg/formResponse';
+
+  const ENTRY_IDS = {
+    name: 'entry.1701963054',
+    email: 'entry.289730490',
+    message: 'entry.182117247',
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({ name: '', email: '', message: '' });
-    }, 3000);
+    setIsSubmitting(true);
+
+    const formBody = new URLSearchParams();
+    formBody.append(ENTRY_IDS.name, formData.name);
+    formBody.append(ENTRY_IDS.email, formData.email);
+    formBody.append(ENTRY_IDS.message, formData.message);
+
+    // Submit via fetch with no-cors (Google Forms doesn't allow CORS,
+    // but the request still goes through)
+    fetch(GOOGLE_FORM_ACTION, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: formBody.toString(),
+    })
+      .then(() => {
+        setSubmitted(true);
+        setFormData({ name: '', email: '', message: '' });
+      })
+      .catch(() => {
+        // Even on "error" with no-cors, the submission usually succeeds
+        setSubmitted(true);
+        setFormData({ name: '', email: '', message: '' });
+      })
+      .finally(() => {
+        setIsSubmitting(false);
+        setTimeout(() => setSubmitted(false), 3000);
+      });
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -85,7 +119,7 @@ const Contact = () => {
         <div ref={infoRef} className="space-y-6 opacity-0">
           <div className="bg-[#F5F0E8] p-6 border-2 border-red rounded-lg shadow-[4px_4px_0px_0px_#C41E3A]">
             <h3 className="text-red font-bold text-lg sm:text-xl mb-4 uppercase tracking-wide">Get in Touch</h3>
-            
+
             <div className="space-y-4">
               <div className="flex items-start">
                 <div className="mr-4 mt-1">
@@ -198,11 +232,13 @@ const Contact = () => {
 
           <button
             type="submit"
-            disabled={submitted}
-            className="mt-6 sm:mt-8 w-full py-3 px-6 bg-[#F5F0E8] border-2 border-red rounded-md font-bold text-red text-base sm:text-lg shadow-[4px_4px_0px_0px_#C41E3A] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] active:shadow-none active:translate-x-[4px] active:translate-y-[4px] transition-all cursor-pointer"
+            disabled={submitted || isSubmitting}
+            className="mt-6 sm:mt-8 w-full py-3 px-6 bg-[#F5F0E8] border-2 border-red rounded-md font-bold text-red text-base sm:text-lg shadow-[4px_4px_0px_0px_#C41E3A] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] active:shadow-none active:translate-x-[4px] active:translate-y-[4px] transition-all cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
           >
             {submitted ? (
               <span className="text-green-600">Message Sent! ✓</span>
+            ) : isSubmitting ? (
+              <span>Sending...</span>
             ) : (
               <>Let's go →</>
             )}

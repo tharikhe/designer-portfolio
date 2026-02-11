@@ -76,88 +76,67 @@ const AIGeneration = () => {
 
         {/* Right - AI works grid */}
         <div ref={gridRef} className="lg:col-span-8 grid grid-cols-2 gap-4">
-          {/* Top left - Skincare product */}
+          {/* Top left */}
           <div className="ai-item relative overflow-hidden rounded-lg shadow-lg opacity-0">
-            <div className="aspect-square bg-gradient-to-br from-green-700 to-green-900 relative">
+            <div className="aspect-[3/4] bg-gradient-to-br from-gray-800 to-gray-900 relative">
               <img
-                src="/images/ai-skincare.png"
-                alt="AI Generated Skincare Product"
+                src="/images/ai-1.png"
+                alt="AI Generated Image 1"
                 className="w-full h-full object-cover"
+                loading="lazy"
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
                   target.style.display = 'none';
                 }}
               />
-              {/* Fallback content */}
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div className="w-20 h-24 bg-gradient-to-b from-amber-100 to-amber-200 rounded-t-full rounded-b-lg shadow-2xl relative">
-                  <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-16 h-4 bg-amber-800 rounded-full"></div>
-                </div>
-              </div>
-              {/* Moss/leaves decoration */}
-              <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-green-900/80 to-transparent"></div>
             </div>
           </div>
 
-          {/* Top right - DRIX beverage */}
+          {/* Top right */}
           <div className="ai-item relative overflow-hidden rounded-lg shadow-lg opacity-0">
-            <div className="aspect-[3/4] bg-gradient-to-br from-orange-400 via-pink-500 to-purple-600 relative">
+            <div className="aspect-[3/4] bg-gradient-to-br from-gray-800 to-gray-900 relative">
               <img
-                src="/images/ai-drix.png"
-                alt="AI Generated DRIX Beverage"
+                src="/images/ai-2.png"
+                alt="AI Generated Image 2"
                 className="w-full h-full object-cover"
+                loading="lazy"
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
                   target.style.display = 'none';
                 }}
               />
-              {/* Fallback content */}
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div className="relative">
-                  <div className="w-16 h-28 bg-gradient-to-b from-cyan-400 to-cyan-600 rounded-2xl shadow-2xl transform -rotate-12 flex items-center justify-center">
-                    <span className="text-white font-black text-xl tracking-wider transform rotate-90">DRIX</span>
-                  </div>
-                </div>
-              </div>
-              {/* Palm tree decorations */}
-              <div className="absolute top-4 left-4 text-3xl">🌴</div>
-              <div className="absolute top-8 right-4 text-2xl">🌴</div>
-              {/* Ice cubes */}
-              <div className="absolute bottom-8 left-4 text-xl">🧊</div>
-              <div className="absolute bottom-4 right-8 text-xl">🧊</div>
             </div>
           </div>
 
-          {/* Bottom - Perfume (full width) */}
-          <div className="ai-item col-span-2 relative overflow-hidden rounded-lg shadow-lg opacity-0">
-            <div className="aspect-[21/9] bg-gradient-to-br from-stone-200 to-stone-400 relative">
+          {/* Bottom left */}
+          <div className="ai-item relative overflow-hidden rounded-lg shadow-lg opacity-0">
+            <div className="aspect-[3/4] bg-gradient-to-br from-gray-800 to-gray-900 relative">
               <img
-                src="/images/ai-perfume.png"
-                alt="AI Generated Perfume"
+                src="/images/ai-3.webp"
+                alt="AI Generated Image 3"
                 className="w-full h-full object-cover"
+                loading="lazy"
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
                   target.style.display = 'none';
                 }}
               />
-              {/* Fallback content */}
-              <div className="absolute inset-0 flex items-center justify-end pr-12 pointer-events-none">
-                {/* Curtain effect on left */}
-                <div className="absolute left-0 top-0 bottom-0 w-1/3 bg-gradient-to-r from-amber-700/20 to-transparent"></div>
+            </div>
+          </div>
 
-                {/* Perfume bottle */}
-                <div className="relative">
-                  <div className="w-12 h-20 bg-gradient-to-b from-stone-100 to-stone-300 rounded-lg shadow-xl flex flex-col items-center">
-                    <div className="w-8 h-10 bg-stone-100 rounded-t-lg mt-1"></div>
-                    <div className="w-6 h-6 bg-stone-800 rounded-full mt-1"></div>
-                  </div>
-                  {/* Label */}
-                  <div className="absolute -right-20 top-1/2 -translate-y-1/2 bg-white/90 px-3 py-2 rounded shadow-lg">
-                    <p className="text-stone-800 text-[8px] font-serif">inspired</p>
-                    <p className="text-stone-800 text-[10px] font-serif font-bold">perfume house</p>
-                  </div>
-                </div>
-              </div>
+          {/* Bottom right */}
+          <div className="ai-item relative overflow-hidden rounded-lg shadow-lg opacity-0">
+            <div className="aspect-[3/4] bg-gradient-to-br from-gray-800 to-gray-900 relative">
+              <img
+                src="/images/ai-4.webp"
+                alt="AI Generated Image 4"
+                className="w-full h-full object-cover"
+                loading="lazy"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.style.display = 'none';
+                }}
+              />
             </div>
           </div>
         </div>

@@ -91,6 +91,7 @@ const About = () => {
                   src="/images/about-profile.png"
                   alt="Mubashir VM - About"
                   className="h-full w-full object-contain object-center"
+                  loading="lazy"
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;
                     target.style.display = 'none';
