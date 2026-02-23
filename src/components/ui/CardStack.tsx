@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import { SquareArrowOutUpRight } from "lucide-react";
+import { SquareArrowOutUpRight, X } from "lucide-react";
 
 function cn(...classes: Array<string | undefined | null | false>) {
   return classes.filter(Boolean).join(" ");
@@ -124,6 +124,7 @@ export function CardStack<T extends CardStackItem>({
     wrapIndex(initialIndex, len),
   );
   const [hovering, setHovering] = React.useState(false);
+  const [selectedVideo, setSelectedVideo] = React.useState<string | null>(null);
 
   // keep active in bounds if items change
   React.useEffect(() => {
@@ -311,9 +312,14 @@ export function CardStack<T extends CardStackItem>({
                     stiffness: springStiffness,
                     damping: springDamping,
                   }}
-                  // translateZ via style transform (kept stable w/ motion values above)
                   // We apply translateZ by using a CSS transform in a child wrapper.
-                  onClick={() => setActive(i)}
+                  onClick={() => {
+                    if (isActive && item.videoSrc) {
+                      setSelectedVideo(item.videoSrc);
+                    } else {
+                      setActive(i);
+                    }
+                  }}
                   {...dragProps}
                 >
                   <div
@@ -370,6 +376,39 @@ export function CardStack<T extends CardStackItem>({
           ) : null}
         </div>
       ) : null}
+
+      {/* Video Modal */}
+      <AnimatePresence>
+        {selectedVideo && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4"
+            onClick={() => setSelectedVideo(null)}
+          >
+            <div
+              className="relative max-w-[90vw] max-h-[90vh] w-full h-full flex items-center justify-center cursor-default"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                className="absolute top-4 right-4 z-[60] p-2 bg-black/50 hover:bg-black/70 rounded-full text-white transition-colors cursor-pointer"
+                onClick={() => setSelectedVideo(null)}
+                aria-label="Close video"
+              >
+                <X className="w-6 h-6" />
+              </button>
+              <video
+                src={selectedVideo}
+                className="max-w-full max-h-[85vh] object-contain rounded-xl shadow-2xl"
+                controls
+                autoPlay
+                playsInline
+              />
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
